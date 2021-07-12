@@ -6,7 +6,7 @@ import {
     CardActions,
     Typography,
     IconButton
-} from '@material-ui/icons'
+} from '@material-ui/core'
 import { AddShoppingCart } from '@material-ui/icons'
 import useStyles from './styles'
 
@@ -16,7 +16,7 @@ const Product = ({ product }) => {
         <Card className={classes.root}>
             <CardMedia
                 className={classes.media}
-                image=""
+                image={product.image}
                 title={product.name}
             />
             <CardContent>
@@ -26,7 +26,7 @@ const Product = ({ product }) => {
                     </Typography>
                     <Typography variant="h5">{product.price}</Typography>
                 </div>
-                <Typography variant="h2" color="textSecondary">
+                <Typography variant="body2" color="textSecondary">
                     {product.description}
                 </Typography>
             </CardContent>
