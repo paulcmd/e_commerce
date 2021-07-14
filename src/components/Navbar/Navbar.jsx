@@ -11,9 +11,11 @@ import {
 import { ShoppingCart } from '@material-ui/icons'
 
 import logo from '../../assets/images/logo/logo.jpg'
-import { classes } from 'istanbul-lib-coverage'
+import useStyles from './styles'
 
 const Navbar = () => {
+
+    const classes = useStyles()
     return (
         <>
             <AppBar position="fixed" className={classes.appBar} color="inherit">
@@ -25,7 +27,7 @@ const Navbar = () => {
                     >
                         <img
                             src={logo}
-                            alt="Commerce.js"
+                            alt="logo"
                             height="25px"
                             className={classes.image}
                         />
