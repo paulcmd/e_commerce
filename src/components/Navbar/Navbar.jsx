@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     AppBar,
-    ToolBar,
+    Toolbar,
     IconButton,
     Badge,
     MenuItem,
@@ -19,7 +19,7 @@ const Navbar = () => {
     return (
         <>
             <AppBar position="fixed" className={classes.appBar} color="inherit">
-                <ToolBar>
+                <Toolbar>
                     <Typography
                         variant="h6"
                         className={classes.title}
@@ -31,7 +31,7 @@ const Navbar = () => {
                             height="25px"
                             className={classes.image}
                         />
-                        E-Commerce App
+                        E-Commerce
                     </Typography>
                     <div className={classes.grow} />
                     <div className={classes.button}>
@@ -44,7 +44,7 @@ const Navbar = () => {
                             </Badge>
                         </IconButton>
                     </div>
-                </ToolBar>
+                </Toolbar>
             </AppBar>
         </>
     )
