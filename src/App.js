@@ -15,12 +15,12 @@ const App = () => {
         fetchProducts()
     }, [])
 
-    console.log(products)
+    console.log('All Products', products)
 
     return (
         <div>
             <Navbar />
-            <Products />
+            <Products products={products} />
         </div>
     )
 }

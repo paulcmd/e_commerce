@@ -31,7 +31,7 @@ const Navbar = () => {
                             height="25px"
                             className={classes.image}
                         />
-                        E-Commerce
+                        E-Commerce Store
                     </Typography>
                     <div className={classes.grow} />
                     <div className={classes.button}>
