@@ -19,8 +19,8 @@ const App = () => {
     const handleAddToCart = async (productId, quantity) => {
         const item = await commerce.cart.add(productId, quantity)
 
-        console.log('cart item', item)
-        
+        console.log('cart items', item.cart)
+
         setCart(item.cart)
     }
 
@@ -31,13 +31,12 @@ const App = () => {
 
     //console.log('All Products', products)
 
-
     //console.log('cart', cart)
 
     return (
         <div>
             <Navbar />
-            <Products products={products} onAddToCart={ handleAddToCart()}/>
+            <Products products={products} onAddToCart={handleAddToCart} />
         </div>
     )
 }
