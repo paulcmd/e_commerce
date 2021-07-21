@@ -6,8 +6,10 @@ import useStyles from './styles'
 
 const Cart = ({ cart }) => {
     const classes = useStyles()
-    console.log('cart', cart)
-    const isEmpty = !cart.line_items.length
+
+    console.clear()
+    console.log('cart', cart.line_items)
+    const isEmpty = cart.line_items.length === 0
 
     const EmptyCart = () => (
         <Typography variant="subtitle1">
