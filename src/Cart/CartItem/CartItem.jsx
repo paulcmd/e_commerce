@@ -10,6 +10,7 @@ import {
 
 import useStyles from './styles'
 const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart }) => {
+  console.log('item',item)
     const classes = useStyles()
     return (
         <Card className="cart-item">
@@ -27,7 +28,9 @@ const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart }) => {
             <CardActions className={classes.cardActions}>
                 <div className={classes.buttons}>
                     <Button
-                        onClick={()=> handleUpdateCartQty()}
+                        onClick={() =>
+                            handleUpdateCartQty(item.id, item.quantity - 1)
+                        }
                         type="button"
                         size="small"
                     >
@@ -35,14 +38,20 @@ const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart }) => {
                     </Button>
                     <Typography>&nbsp;{item.quantity}&nbsp;</Typography>
                     <Button
-                        onClick={()=> handleUpdateCartQty()}
+                        onClick={() =>
+                            handleUpdateCartQty(item.id, item.quantity + 1)
+                        }
                         type="button"
                         size="small"
                     >
                         +
                     </Button>
                 </div>
-                <Button variant="contained" type="button" color="secondary">
+          <Button
+            onClick={() =>
+              handleRemoveFromCart(item.id)
+             }
+            variant="contained" type="button" color="secondary">
                     Remove
                 </Button>
             </CardActions>
