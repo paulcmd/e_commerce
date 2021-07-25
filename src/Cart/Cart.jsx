@@ -30,7 +30,10 @@ const Cart = ({
                 {cart.line_items.map((item) => (
                     <Grid xs={12} sm={4} key={item.id}>
                         <div>
-                            <CartItem item={item} />
+                            <CartItem item={item}
+                                handleUpdateCartQty={handleUpdateCartQty}
+                                handleRemoveFromCart={handleRemoveFromCart}
+                            />
                         </div>
                     </Grid>
                 ))}
@@ -46,6 +49,7 @@ const Cart = ({
                         type="button"
                         variant="contained"
                         color="secondary"
+                        onClick={handleEmptyCart}
                     >
                         Empty Cart
                     </button>
