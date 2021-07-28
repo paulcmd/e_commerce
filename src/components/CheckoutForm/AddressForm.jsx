@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     InputLabel,
     Select,
@@ -11,7 +11,7 @@ import { useForm, FormProvider } from 'react-hook-form'
 import FormInput from './FormInput'
 import { commerce } from '../../lib/commerce'
 
-const AddressForm = () => {
+const AddressForm = ({ checkoutToken }) => {
 
 	const [shippingCountries, setShippingCountries] = useState([])
 	const [shippingCountry, setShippingCountry] = useState('')
@@ -22,11 +22,20 @@ const AddressForm = () => {
 
 	const methods = useForm()
 	
+	//console.log('checkoutToken', checkoutToken)
+	//const { id } = checkoutToken
+	
 	const fetchShippingCountries = async (checkoutTokenId) => {
 		const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId)
 		setShippingCountries(countries)
-		console.log(shippingCountries)
+		console.log('shipping countries',shippingCountries)
 	}
+
+	useEffect(() => {
+		fetchShippingCountries(checkoutToken.id)
+	},[])
+
+	//fetchShippingCountries(checkoutToken.id)
 
     return (
         <>
@@ -34,7 +43,7 @@ const AddressForm = () => {
                 Shipping Address
             </Typography>
             <FormProvider {...methods}>
-                <form onSubmit="">
+                <form onSubmit={methods.submit}>
                     <Grid container spacing={3}>
                         <FormInput
                             required
@@ -50,9 +59,9 @@ const AddressForm = () => {
                             name="zip"
                             label="ZIP/ Postal Code"
 						/>
-						<Grid item xs={12} sm={6}>
+						{/* <Grid item xs={12} sm={6}>
 							<InputLabel>Shipping Country</InputLabel>
-							<Select value='' fullWidth onChange=''>
+							<Select value={} fullWidth onChange={}>
 								<MenuItem key={} value={}>
 									Select Me
 								</MenuItem>
@@ -73,7 +82,7 @@ const AddressForm = () => {
 									Select Me
 								</MenuItem>
 							</Select>
-						</Grid>
+						</Grid> */}
                     </Grid>
                 </form>
             </FormProvider>
