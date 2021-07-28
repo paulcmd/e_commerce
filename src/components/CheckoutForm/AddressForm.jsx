@@ -25,29 +25,22 @@ const AddressForm = ({ checkoutToken }) => {
     //const { id } = checkoutToken
 
     const fetchShippingCountries = async (checkoutTokenId) => {
-        const { countries } =
-            await commerce.services.localeListShippingCountries(checkoutTokenId)
-        setShippingCountries(countries)
-        //console.log('Countries',countries)
+        const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId)
+		setShippingCountries(countries)
+		//console.log(Object.entries(countries)[0][1])
+        setShippingCountry(Object.keys(countries)[0])
     }
 
     useEffect(() => {
         fetchShippingCountries(checkoutToken.id)
-    }, [])
+	}, [])
+	console.log(shippingCountries)
+	const countries = Object.entries(shippingCountries).map(([code, name])=> ({id: code, label: name}))
 
     //fetchShippingCountries(checkoutToken.id)
 	//console.log('Shipping Countries', shippingCountries)
+	// console.log('shipping country', countries[0])
 	
-	const countriesArray = Object.keys(shippingCountries)
-	console.log('countries array', countriesArray)
-
-	const mappedCountries = countriesArray.map((country) => {
-		return (
-			<div>
-				{country}
-			</div>
-		)
-	})
 
     return (
         <>
@@ -71,15 +64,15 @@ const AddressForm = ({ checkoutToken }) => {
                             name="zip"
                             label="ZIP/ Postal Code"
                         />
-                        {/* <Grid item xs={12} sm={6}>
+                        <Grid item xs={12} sm={6}>
 							<InputLabel>Shipping Country</InputLabel>
-							<Select value={} fullWidth onChange={}>
-								<MenuItem key={} value={}>
+							<Select value={shippingCountry} fullWidth onChange={e=>setShippingCountry(e.target.value)}>
+								{/* <MenuItem key={} value={}>
 									Select Me
-								</MenuItem>
+								</MenuItem> */}
 							</Select>
 						</Grid>
-						<Grid item xs={12} sm={6}>
+						{/* <Grid item xs={12} sm={6}>
 							<InputLabel>Shipping Subdivision</InputLabel>
 							<Select value={} fullWidth onChange={}>
 								<MenuItem key={} value={}>
@@ -97,7 +90,6 @@ const AddressForm = ({ checkoutToken }) => {
 						</Grid> */}
                     </Grid>
 				</form>
-				{mappedCountries}
             </FormProvider>
         </>
     )
@@ -110,4 +102,8 @@ export default AddressForm
 -Object.entries will create an array of both key and value pairs for each entry
 -Object.values - just the values
 _Object.keys - just the keys
+
+onChange={e=>setShippingCountry(e.target.value)}> whatever value is selected, set it as the shippingCountry
+
+Object.entries(shippingCountries).map(([code, name])=> ({id: code, label: name})) - 
 */
