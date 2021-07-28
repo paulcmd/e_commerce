@@ -53,3 +53,8 @@ const Checkout = () => {
 }
 
 export default Checkout
+
+
+/* steps.length will run after the last step in form. ie
+last index in steps + 1
+*/
