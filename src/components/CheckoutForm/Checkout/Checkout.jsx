@@ -14,8 +14,9 @@ import useStyles from './styles'
 const steps = ['Shipping address', 'Payment details']
 
 const Checkout = () => {
-	const [activeStep, setActiveStep] = useState(0)
-	const classes = useStyles()
+    const [activeStep, setActiveStep] = useState(0)
+    const classes = useStyles()
+    const Form = () => (activeStep === 0 ? <AddressForm /> : <PaymentForm />)
 
     return (
         <>
@@ -34,7 +35,8 @@ const Checkout = () => {
                                 <StepLabel>{step}</StepLabel>
                             </Step>
                         ))}
-                    </Stepper>
+					</Stepper>
+					{activeStep === steps.lastIndex ? <Confirmation /> : <From />}
                 </Paper>
             </main>
         </>

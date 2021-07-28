@@ -44,7 +44,7 @@ const Cart = ({
                     Subtotal: {cart.subtotal.formatted_with_symbol}
                 </Typography>
                 <div>
-                    <button
+                    <Button
                         className={classes.emptyButton}
                         size="large"
                         type="button"
@@ -53,8 +53,8 @@ const Cart = ({
                         onClick={handleEmptyCart}
                     >
                         Empty Cart
-                    </button>
-                    <button
+                    </Button>
+                    <Button
                         component={Link}
                         to="/checkout"
                         className={classes.checkoutButton}
@@ -64,7 +64,7 @@ const Cart = ({
                         color="primary"
                     >
                         Checkout
-                    </button>
+                    </Button>
                 </div>
             </div>
         </>
