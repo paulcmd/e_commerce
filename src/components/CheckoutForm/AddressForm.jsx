@@ -12,30 +12,42 @@ import FormInput from './FormInput'
 import { commerce } from '../../lib/commerce'
 
 const AddressForm = ({ checkoutToken }) => {
+    const [shippingCountries, setShippingCountries] = useState([])
+    const [shippingCountry, setShippingCountry] = useState('')
+    const [shippingSubdivisions, setShippingSubdivisions] = useState([])
+    const [shippingSubdivision, setShippingSubdivision] = useState('')
+    const [shippingOptions, setShippingOptions] = useState([])
+    const [shippingOption, setShippingOption] = useState('')
 
-	const [shippingCountries, setShippingCountries] = useState([])
-	const [shippingCountry, setShippingCountry] = useState('')
-	const [shippingSubdivisions, setShippingSubdivisions] = useState([])
-	const [shippingSubdivision, setShippingSubdivision] = useState('')
-	const [shippingOptions, setShippingOptions] = useState([])
-	const [shippingOption, setShippingOption] = useState('')
+    const methods = useForm()
 
-	const methods = useForm()
+    //console.log('checkoutToken', checkoutToken)
+    //const { id } = checkoutToken
+
+    const fetchShippingCountries = async (checkoutTokenId) => {
+        const { countries } =
+            await commerce.services.localeListShippingCountries(checkoutTokenId)
+        setShippingCountries(countries)
+        //console.log('Countries',countries)
+    }
+
+    useEffect(() => {
+        fetchShippingCountries(checkoutToken.id)
+    }, [])
+
+    //fetchShippingCountries(checkoutToken.id)
+	//console.log('Shipping Countries', shippingCountries)
 	
-	//console.log('checkoutToken', checkoutToken)
-	//const { id } = checkoutToken
-	
-	const fetchShippingCountries = async (checkoutTokenId) => {
-		const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId)
-		setShippingCountries(countries)
-		console.log('shipping countries',shippingCountries)
-	}
+	const countriesArray = Object.keys(shippingCountries)
+	console.log('countries array', countriesArray)
 
-	useEffect(() => {
-		fetchShippingCountries(checkoutToken.id)
-	},[])
-
-	//fetchShippingCountries(checkoutToken.id)
+	const mappedCountries = countriesArray.map((country) => {
+		return (
+			<div>
+				{country}
+			</div>
+		)
+	})
 
     return (
         <>
@@ -58,8 +70,8 @@ const AddressForm = ({ checkoutToken }) => {
                             required
                             name="zip"
                             label="ZIP/ Postal Code"
-						/>
-						{/* <Grid item xs={12} sm={6}>
+                        />
+                        {/* <Grid item xs={12} sm={6}>
 							<InputLabel>Shipping Country</InputLabel>
 							<Select value={} fullWidth onChange={}>
 								<MenuItem key={} value={}>
@@ -84,10 +96,18 @@ const AddressForm = ({ checkoutToken }) => {
 							</Select>
 						</Grid> */}
                     </Grid>
-                </form>
+				</form>
+				{mappedCountries}
             </FormProvider>
         </>
     )
 }
 
 export default AddressForm
+
+
+/* 
+-Object.entries will create an array of both key and value pairs for each entry
+-Object.values - just the values
+_Object.keys - just the keys
+*/

@@ -30,6 +30,7 @@ const Checkout = ({ cart }) => {
                 })
                 //console.log('token',token)
                 setCheckoutToken(token)
+                
             } catch (error) {}
         }
 

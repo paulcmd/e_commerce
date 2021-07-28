@@ -28,7 +28,7 @@ const Cart = ({
         <>
             <Grid container spacing={3}>
                 {cart.line_items.map((item) => (
-                    <Grid xs={12} sm={4} key={item.id}>
+                    <Grid xs={12} sm={6} key={item.id}>
                         <div>
                             <CartItem
                                 item={item}
