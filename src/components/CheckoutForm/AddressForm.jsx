@@ -25,22 +25,25 @@ const AddressForm = ({ checkoutToken }) => {
     //const { id } = checkoutToken
 
     const fetchShippingCountries = async (checkoutTokenId) => {
-        const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId)
-		setShippingCountries(countries)
-		//console.log(Object.entries(countries)[0][1])
+        const { countries } =
+            await commerce.services.localeListShippingCountries(checkoutTokenId)
+        setShippingCountries(countries)
+        //console.log(Object.entries(countries)[0][1])
         setShippingCountry(Object.keys(countries)[0])
     }
 
     useEffect(() => {
         fetchShippingCountries(checkoutToken.id)
-	}, [])
-	console.log(shippingCountries)
-	const countries = Object.entries(shippingCountries).map(([code, name])=> ({id: code, label: name}))
+    }, [])
+    
+    const countries = Object.entries(shippingCountries).map(([code, name]) => ({
+        id: code,
+        label: name
+    }))
 
-    //fetchShippingCountries(checkoutToken.id)
-	//console.log('Shipping Countries', shippingCountries)
-	// console.log('shipping country', countries[0])
-	
+    
+    console.log('Shipping Countries', shippingCountries)
+    console.log('All countries with Id and Label', countries)
 
     return (
         <>
@@ -65,14 +68,25 @@ const AddressForm = ({ checkoutToken }) => {
                             label="ZIP/ Postal Code"
                         />
                         <Grid item xs={12} sm={6}>
-							<InputLabel>Shipping Country</InputLabel>
-							<Select value={shippingCountry} fullWidth onChange={e=>setShippingCountry(e.target.value)}>
-								{/* <MenuItem key={} value={}>
-									Select Me
-								</MenuItem> */}
-							</Select>
-						</Grid>
-						{/* <Grid item xs={12} sm={6}>
+                            <InputLabel>Shipping Country</InputLabel>
+                            <Select
+                                value={shippingCountry}
+                                fullWidth
+                                onChange={(e) =>
+                                    setShippingCountry(e.target.value)
+                                }
+                            >
+                                {countries.map((country) => (
+                                    <MenuItem
+                                        key={country.id}
+                                        value={country.id}
+                                    >
+                                        {country.label}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </Grid>
+                        {/* <Grid item xs={12} sm={6}>
 							<InputLabel>Shipping Subdivision</InputLabel>
 							<Select value={} fullWidth onChange={}>
 								<MenuItem key={} value={}>
@@ -89,7 +103,7 @@ const AddressForm = ({ checkoutToken }) => {
 							</Select>
 						</Grid> */}
                     </Grid>
-				</form>
+                </form>
             </FormProvider>
         </>
     )
@@ -97,13 +111,17 @@ const AddressForm = ({ checkoutToken }) => {
 
 export default AddressForm
 
-
 /* 
 -Object.entries will create an array of both key and value pairs for each entry
 -Object.values - just the values
 _Object.keys - just the keys
 
-onChange={e=>setShippingCountry(e.target.value)}> whatever value is selected, set it as the shippingCountry
+ whatever value is selected, set it as the shippingCountry
 
-Object.entries(shippingCountries).map(([code, name])=> ({id: code, label: name})) - 
+Object.entries(shippingCountries).map(([code, name])=> ({id: code, label: name})) - we are destructuring the key value pairs as code and name. This is done so we
+can give <MenuItem> an id and a label(separately)
+we then create an object with each item in the array with country code as id and name as label.
+
+setShippingCountry(Object.keys(countries)[0]) this places the first country in the <Select> field
+onChange={e=>setShippingCountry(e.target.value)}> allows user to select a country in the menu, and into the <Select> field
 */
