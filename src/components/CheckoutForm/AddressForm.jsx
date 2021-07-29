@@ -27,23 +27,63 @@ const AddressForm = ({ checkoutToken }) => {
     const fetchShippingCountries = async (checkoutTokenId) => {
         const { countries } =
             await commerce.services.localeListShippingCountries(checkoutTokenId)
+        console.log('response', countries)
         setShippingCountries(countries)
-        //console.log(Object.entries(countries)[0][1])
-        setShippingCountry(Object.keys(countries)[0])
+        console.log(Object.entries(countries)[0][1])
+        // setShippingCountry(Object.keys(countries)[0])
+        console.log(checkoutTokenId)
+    }
+
+    const fetchShippingSubdivisions = async (countryCode) => {
+        const url = new URL(
+            `https://api.chec.io/v1/services/locale/chkt_vlKeRrX2vbmxWo/countries/${countryCode}/subdivisions`
+        )
+
+        let headers = {
+            'X-Authorization': process.env.REACT_APP_CHEC_PUBLIC_KEY,
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        }
+
+        fetch(url, {
+            method: 'GET',
+            headers: headers
+        })
+            .then((response) => response.json())
+			.then(({ subdivisions }) => {
+				setShippingSubdivisions(subdivisions)
+				setShippingSubdivision(Object.keys(subdivisions)[0])
+			})
+        // const { subdivisions } =
+        // 	await commerce.services.localeListShippingSubdivisions(countryCode)
+        // console.log('Subdivision response',response)
     }
 
     useEffect(() => {
         fetchShippingCountries(checkoutToken.id)
     }, [])
-    
+
+    useEffect(() => {
+        fetchShippingSubdivisions(shippingCountry)
+    }, [shippingCountry])
+
     const countries = Object.entries(shippingCountries).map(([code, name]) => ({
         id: code,
         label: name
     }))
 
-    
+    const subdivisions = Object.entries(shippingSubdivisions).map(
+        ([code, name]) => ({
+            id: code,
+            label: name
+        })
+    )
+
     console.log('Shipping Countries', shippingCountries)
+    console.log('Shipping Country', shippingCountry)
     console.log('All countries with Id and Label', countries)
+
+    console.log('Shipping subdivisions', subdivisions)
 
     return (
         <>
@@ -86,15 +126,26 @@ const AddressForm = ({ checkoutToken }) => {
                                 ))}
                             </Select>
                         </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <InputLabel>Shipping Subdivision</InputLabel>
+                            <Select
+                                value={shippingSubdivision}
+                                fullWidth
+                                onChange={(e) =>
+                                    setShippingSubdivision(e.target.value)
+                                }
+                            >
+                                {subdivisions.map((subdivision) => (
+                                    <MenuItem
+                                        key={subdivision.id}
+                                        value={subdivision.id}
+                                    >
+                                        {subdivision.label}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </Grid>
                         {/* <Grid item xs={12} sm={6}>
-							<InputLabel>Shipping Subdivision</InputLabel>
-							<Select value={} fullWidth onChange={}>
-								<MenuItem key={} value={}>
-									Select Me
-								</MenuItem>
-							</Select>
-						</Grid>
-						<Grid item xs={12} sm={6}>
 							<InputLabel>Shipping Options</InputLabel>
 							<Select value={} fullWidth onChange={}>
 								<MenuItem key={} value={}>
