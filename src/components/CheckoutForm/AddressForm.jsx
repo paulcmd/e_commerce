@@ -35,28 +35,28 @@ const AddressForm = ({ checkoutToken }) => {
     }
 
     const fetchShippingSubdivisions = async (countryCode) => {
-        const url = new URL(
-            `https://api.chec.io/v1/services/locale/chkt_vlKeRrX2vbmxWo/countries/${countryCode}/subdivisions`
-        )
+        // const url = new URL(
+        //     `https://api.chec.io/v1/services/locale/chkt_vlKeRrX2vbmxWo/countries/${countryCode}/subdivisions`
+        // )
 
-        let headers = {
-            'X-Authorization': process.env.REACT_APP_CHEC_PUBLIC_KEY,
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-        }
+        // let headers = {
+        //     'X-Authorization': process.env.REACT_APP_CHEC_PUBLIC_KEY,
+        //     Accept: 'application/json',
+        //     'Content-Type': 'application/json'
+        // }
 
-        fetch(url, {
-            method: 'GET',
-            headers: headers
-        })
-            .then((response) => response.json())
-			.then(({ subdivisions }) => {
-				setShippingSubdivisions(subdivisions)
-				setShippingSubdivision(Object.keys(subdivisions)[0])
-			})
-        // const { subdivisions } =
-        // 	await commerce.services.localeListShippingSubdivisions(countryCode)
-        // console.log('Subdivision response',response)
+        // fetch(url, {
+        //     method: 'GET',
+        //     headers: headers
+        // })
+        //     .then((response) => response.json())
+		// 	.then(({ subdivisions }) => {
+		// 		setShippingSubdivisions(subdivisions)
+		// 		setShippingSubdivision(Object.keys(subdivisions)[0])
+		// 	})
+        const { subdivisions } =
+        	await commerce.services.localeListShippingSubdivisions(countryCode)
+        console.log('Subdivision response',response)
     }
 
     useEffect(() => {
