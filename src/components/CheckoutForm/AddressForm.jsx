@@ -72,7 +72,7 @@ const AddressForm = ({ checkoutToken }) => {
     }, [])
 
     useEffect(() => {
-        fetchShippingSubdivisions('chkt_Y5eJ04knA40r9l', 'US')
+        fetchShippingSubdivisions(checkoutToken.id, shippingCountryCode)
     }, [shippingCountryCode])
 
     const countries = Object.entries(shippingCountries).map(([code, name]) => ({
