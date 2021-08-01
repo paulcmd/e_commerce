@@ -56,7 +56,9 @@ const AddressForm = ({ checkoutToken }) => {
             .then(({ subdivisions }) => {
                 setShippingSubdivisions(subdivisions)
                 setShippingSubdivision(Object.keys(subdivisions)[0])
+                console.log('Shipping subdivision : ', shippingSubdivision)
             })
+        
         // const { subdivisions } =
         //     await commerce.services.localeListShippingSubdivisions(
         //         checkoutTokenId,
@@ -71,7 +73,7 @@ const AddressForm = ({ checkoutToken }) => {
         checkoutTokenId,
         { countryCode, region = null }
     ) => {
-        const options = await commerce.services.getShippingOptions(
+        const options = await commerce.checkout.getShippingOptions(
             checkoutTokenId,
             countryCode,
             region
@@ -106,9 +108,9 @@ const AddressForm = ({ checkoutToken }) => {
         })
     )
 
-    console.log('Shipping Countries', shippingCountries)
-    console.log('Shipping Country', shippingCountryCode)
-    console.log('All countries with Id and Label', countries)
+    // console.log('Shipping Countries', shippingCountries)
+    // console.log('Shipping Country', shippingCountryCode)
+    // console.log('All countries with Id and Label', countries)
 
     console.log('Shipping subdivisions', subdivisions)
 
