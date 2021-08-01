@@ -38,33 +38,33 @@ const AddressForm = ({ checkoutToken }) => {
         checkoutTokenId,
         shippingCountryCode
     ) => {
-        // const url = new URL(
-        //     `https://api.chec.io/v1/services/locale/chkt_vlKeRrX2vbmxWo/countries/${countryCode}/subdivisions`
-        // )
+        const url = new URL(
+            `https://api.chec.io/v1/services/locale/${checkoutTokenId}/countries/${shippingCountryCode}/subdivisions`
+        )
 
-        // let headers = {
-        //     'X-Authorization': process.env.REACT_APP_CHEC_PUBLIC_KEY,
-        //     Accept: 'application/json',
-        //     'Content-Type': 'application/json'
-        // }
+        let headers = {
+            'X-Authorization': process.env.REACT_APP_CHEC_PUBLIC_KEY,
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        }
 
-        // fetch(url, {
-        //     method: 'GET',
-        //     headers: headers
-        // })
-        //     .then((response) => response.json())
-        // 	.then(({ subdivisions }) => {
-        // 		setShippingSubdivisions(subdivisions)
-        // 		setShippingSubdivision(Object.keys(subdivisions)[0])
-        // 	})
-        const { subdivisions } =
-            await commerce.services.localeListShippingSubdivisions(
-                checkoutTokenId,
-                shippingCountryCode
-            )
-        console.log('Subdivision response', subdivisions)
-        setShippingSubdivisions(subdivisions)
-        setShippingSubdivision(Object.keys(subdivisions)[0])
+        fetch(url, {
+            method: 'GET',
+            headers: headers
+        })
+            .then((response) => response.json())
+        	.then(({ subdivisions }) => {
+        		setShippingSubdivisions(subdivisions)
+        		setShippingSubdivision(Object.keys(subdivisions)[0])
+        	})
+        // const { subdivisions } =
+        //     await commerce.services.localeListShippingSubdivisions(
+        //         checkoutTokenId,
+        //         shippingCountryCode
+        //     )
+        // console.log('Subdivision response', subdivisions)
+        // setShippingSubdivisions(subdivisions)
+        // setShippingSubdivision(Object.keys(subdivisions)[0])
     }
 
     useEffect(() => {
