@@ -93,7 +93,8 @@ const AddressForm = ({ checkoutToken }) => {
     }, [shippingCountryCode])
 
     useEffect(() => {
-        shippingSubdivision && fetchShippingOptions(checkoutToken.id, shippingCountryCode, shippingSubdivision)
+        shippingSubdivision &&
+            fetchShippingOptions(checkoutToken.id, shippingCountryCode, shippingSubdivision)
     }, [shippingSubdivision])
 
     const countries = Object.entries(shippingCountries).map(([code, name]) => ({
@@ -111,7 +112,7 @@ const AddressForm = ({ checkoutToken }) => {
     // console.log('Shipping Countries', shippingCountries)
     // console.log('Shipping Country', shippingCountryCode)
     // console.log('All countries with Id and Label', countries)
-
+    console.log('checkout token id : ' , checkoutToken.id)
     console.log('Shipping subdivisions', subdivisions)
 
     return (
