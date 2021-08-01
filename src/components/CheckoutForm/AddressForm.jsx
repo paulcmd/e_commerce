@@ -69,14 +69,16 @@ const AddressForm = ({ checkoutToken }) => {
 
     const fetchShippingOptions = async (
         checkoutTokenId,
-        countryCode,
-        region = null
+        { countryCode, region = null }
     ) => {
-        await commerce.services.getShippingOptions(
+        const options = await commerce.services.getShippingOptions(
             checkoutTokenId,
             countryCode,
             region
         )
+        console.log('shipping options', options)
+        setShippingOptions(options)
+        setShippingOption(options[0].id)
     }
 
     useEffect(() => {
@@ -89,9 +91,8 @@ const AddressForm = ({ checkoutToken }) => {
     }, [shippingCountryCode])
 
     useEffect(() => {
-        fetchShippingOptions(checkoutToken.id, shippingCountryCode)
-         
-    },[shippingOption])
+        shippingSubdivision && fetchShippingOptions(checkoutToken.id, shippingCountryCode, shippingSubdivision)
+    }, [shippingSubdivision])
 
     const countries = Object.entries(shippingCountries).map(([code, name]) => ({
         id: code,
