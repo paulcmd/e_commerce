@@ -27,9 +27,9 @@ const AddressForm = ({ checkoutToken }) => {
     const fetchShippingCountries = async (checkoutTokenId) => {
         const { countries } =
             await commerce.services.localeListShippingCountries(checkoutTokenId)
-        console.log('response', countries)
+        console.log('Countries : ', countries)
         setShippingCountries(countries)
-        console.log(Object.entries(countries)[0][1])
+        //console.log(Object.entries(countries)[0][1])
         // setShippingCountry(Object.keys(countries)[0])
         console.log(checkoutTokenId)
     }
@@ -56,7 +56,7 @@ const AddressForm = ({ checkoutToken }) => {
             .then(({ subdivisions }) => {
                 setShippingSubdivisions(subdivisions)
                 setShippingSubdivision(Object.keys(subdivisions)[0])
-                console.log('Shipping subdivision : ', shippingSubdivision)
+                //console.log('Shipping subdivision : ', shippingSubdivision)
             })
         
         // const { subdivisions } =
@@ -70,15 +70,19 @@ const AddressForm = ({ checkoutToken }) => {
     }
 
     const fetchShippingOptions = async (
-        checkoutTokenId,
-        { country : shippingCountryCode , region : shippingSubdivision  }
+        checkoutTokenId, shippingCountryCode , shippingSubdivision
     ) => {
         const options = await commerce.checkout.getShippingOptions(
             checkoutTokenId,
-            countryCode,
-            region
+            {
+                country : shippingCountryCode,
+                region : shippingSubdivision
+            }
         )
-        console.log('shipping options', options)
+
+        console.clear()
+        console.log('Shipping Options Country : ', options[0].countries)
+        console.log('Shipping Options Description : ',options[0].description)
         setShippingOptions(options)
         setShippingOption(options[0].id)
     }
@@ -89,12 +93,12 @@ const AddressForm = ({ checkoutToken }) => {
 
     useEffect(() => {
         shippingCountryCode &&
-            fetchShippingSubdivisions(checkoutToken.id, shippingCountryCode, shippingSubdivision)
+            fetchShippingSubdivisions(checkoutToken.id, shippingCountryCode)
     }, [shippingCountryCode])
 
     useEffect(() => {
         shippingSubdivision &&
-            fetchShippingOptions(checkoutToken.id)
+            fetchShippingOptions(checkoutToken.id, shippingCountryCode, shippingSubdivision)
     }, [shippingSubdivision])
 
     const countries = Object.entries(shippingCountries).map(([code, name]) => ({
@@ -112,8 +116,8 @@ const AddressForm = ({ checkoutToken }) => {
     // console.log('Shipping Countries', shippingCountries)
     // console.log('Shipping Country', shippingCountryCode)
     // console.log('All countries with Id and Label', countries)
-    console.log('checkout token id : ' , checkoutToken.id)
-    console.log('Shipping subdivisions', subdivisions)
+    //console.log('Checkout Token ID : ' , checkoutToken.id)
+    //console.log('Shipping subdivisions', subdivisions)
 
     return (
         <>
