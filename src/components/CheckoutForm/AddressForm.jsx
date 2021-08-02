@@ -82,7 +82,8 @@ const AddressForm = ({ checkoutToken }) => {
 
         console.clear()
         console.log('Shipping Options Country : ', options[0].countries)
-        console.log('Shipping Options Description : ',options[0].description)
+        console.log('Shipping Options Description : ', options[0].description)
+        console.log('Shipping Options Object : ', options)
         setShippingOptions(options)
         setShippingOption(options[0].id)
     }
@@ -188,12 +189,12 @@ const AddressForm = ({ checkoutToken }) => {
                                     setShippingOption(e.target.value)
                                 }
                             >
-                                {shippingOptions.map(({ description, id }) => (
+                                {shippingOptions.map(({ id, description, price }) => (
                                     <MenuItem
                                         key={id}
                                         value={id}
                                     >
-                                        {description}
+                                        {` ${description} - ${price.formatted_with_code}`}
                                     </MenuItem>
                                 ))}
                             </Select>
