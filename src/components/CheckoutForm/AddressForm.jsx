@@ -179,14 +179,25 @@ const AddressForm = ({ checkoutToken }) => {
                                 ))}
                             </Select>
                         </Grid>
-                        {/* <Grid item xs={12} sm={6}>
+                        <Grid item xs={12} sm={6}>
 							<InputLabel>Shipping Options</InputLabel>
-							<Select value={} fullWidth onChange={}>
-								<MenuItem key={} value={}>
-									Select Me
-								</MenuItem>
-							</Select>
-						</Grid> */}
+							<Select
+                                value={shippingOption}
+                                fullWidth
+                                onChange={(e) =>
+                                    setShippingOption(e.target.value)
+                                }
+                            >
+                                {shippingOptions.map(({ description, id }) => (
+                                    <MenuItem
+                                        key={id}
+                                        value={id}
+                                    >
+                                        {description}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+						</Grid>
                     </Grid>
                 </form>
             </FormProvider>
