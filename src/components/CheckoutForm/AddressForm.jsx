@@ -8,6 +8,7 @@ import {
     Typography
 } from '@material-ui/core'
 import { useForm, FormProvider } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import FormInput from './FormInput'
 import { commerce } from '../../lib/commerce'
 
@@ -190,13 +191,36 @@ const AddressForm = ({ checkoutToken }) => {
                                 {shippingOptions.map(
                                     ({ id, description, price }) => (
                                         <MenuItem key={id} value={id}>
-                                            {` ${description} - (${price.formatted_with_symbol}`}
+                                            {` ${description} - ( ${price.formatted_with_symbol} )`}
                                         </MenuItem>
                                     )
                                 )}
                             </Select>
                         </Grid>
                     </Grid>
+
+                    <br />
+                    <div
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'space-between'
+                        }}
+                    >
+                        <Button
+                            component={Link}
+                            to={'/cart'}
+                            variant="outlined"
+                        >
+                            Back to Cart
+                        </Button>
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                        >
+                            Next
+                        </Button>
+                    </div>
                 </form>
             </FormProvider>
         </>
