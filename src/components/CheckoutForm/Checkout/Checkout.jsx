@@ -37,10 +37,17 @@ const Checkout = ({ cart }) => {
         generateToken()
     }, [cart])
 
+    const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1)
+    
+    const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1)
+
     const next = (data) => {
         setShippingData(data)
-        console.log('Next data : ', data)
+        
+        //console.log('Next data : ', data)
     }
+
+    console.log('Shipping data : ' ,shippingData)
 
     const Confirmation = () => <div>Confirmation</div>
 
@@ -84,4 +91,6 @@ export default Checkout
 
 /* steps.length will run after the last step in form. ie
 last index in steps + 1
+
+next function is collecting data from addressForm and setting it to shippingData state
 */

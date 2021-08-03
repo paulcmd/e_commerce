@@ -11,7 +11,7 @@ const FormInput = ({ name, label }) => {
                 control={control}
                 name={name}
                 render={({ field }) => (
-                    <TextField fullWidth label={label} required />
+                    <TextField {...field} label={label} fullWidth required />
                 )}
             />
         </Grid>
@@ -23,4 +23,8 @@ export default FormInput
 /* 
 Controller can use material ui text field as its own
 -This is a custom component
+
+- ...field contains all data in all fields (firstname, lastName etc)
+
+fullWidth label and required are regular TextField component props
 */

@@ -28,11 +28,11 @@ const AddressForm = ({ checkoutToken, next }) => {
     const fetchShippingCountries = async (checkoutTokenId) => {
         const { countries } =
             await commerce.services.localeListShippingCountries(checkoutTokenId)
-        console.log('Countries : ', countries)
+        
         setShippingCountries(countries)
         //console.log(Object.entries(countries)[0][1])
         // setShippingCountry(Object.keys(countries)[0])
-        console.log(checkoutTokenId)
+        //console.log(checkoutTokenId)
     }
 
     const fetchShippingSubdivisions = async (
@@ -83,9 +83,9 @@ const AddressForm = ({ checkoutToken, next }) => {
             }
         )
 
-        console.clear()
-        console.log('Shipping Options Country : ', options[0].countries)
-        console.log('Shipping Options Description : ', options[0].description)
+        // console.clear()
+        // console.log('Shipping Options Country : ', options[0].countries)
+        // console.log('Shipping Options Description : ', options[0].description)
         console.log('Shipping Options Object : ', options)
         setShippingOptions(options)
         setShippingOption(options[0].id)
@@ -134,15 +134,14 @@ const AddressForm = ({ checkoutToken, next }) => {
             </Typography>
             <FormProvider {...methods}>
                 <form
-                    onSubmit={methods.handleSubmit((formInputData) => {
-                        () =>
-                            next(
-                                ...formInputData,
-                                shippingCountryCode,
-                                shippingSubdivision,
-                                shippingOption
-                            )
-                    })}
+                    onSubmit={methods.handleSubmit((data) => 
+                        next({
+                            ...data,
+                            shippingCountryCode,
+                            shippingSubdivision,
+                            shippingOption
+                        })
+                    )}
                 >
                     <Grid container spacing={3}>
                         <FormInput name="firstName" label="First Name" />
