@@ -43,7 +43,7 @@ const Checkout = ({ cart }) => {
 
     const next = (data) => {
         setShippingData(data)
-        
+        nextStep()
         //console.log('Next data : ', data)
     }
 
