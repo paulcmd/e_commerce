@@ -22,13 +22,41 @@ const PaymentForm = ({ checkoutToken, backStep }) => {
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card: cardElement
-		})
+        })
 
-		if (error) {
-			console.log('Payment Method Creation Error : ', error)
-		}
-		
-
+        if (error) {
+            console.log('Payment Method Creation Error : ', error)
+        } else {
+            const {
+                firstName,
+                lastName,
+                email,
+                address1,
+                city,
+                shippingSubdivision,
+                zip,
+                shippingCountryCode
+            } = shippingData
+            const orderData = {
+                line_items: checkoutToken.live.line_items,
+                customer: {
+                    firstname: firstName,
+                    lastname: lastName,
+                    email: email
+                },
+                shipping: {
+                    name: 'Primary',
+                    street: address1,
+                    town_city: city,
+                    county_state: shippingSubdivision,
+                    postal_zip_code: zip,
+                    country: shippingCountryCode
+                },
+                fulfillment: {
+                    shipping_method: shippingOption
+                }
+            }
+        }
     }
     return (
         <>
