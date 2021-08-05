@@ -57,8 +57,9 @@ const Checkout = ({ cart, order, handleCaptureCheckout, errorMessage }) => {
         ) : (
             <PaymentForm
                 checkoutToken={checkoutToken}
+                
+                     
                 backStep={backStep}
-                onCaptureCheckout={onCaptureCheckout}
             />
         )
 

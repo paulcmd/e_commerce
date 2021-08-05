@@ -11,8 +11,14 @@ import Review from './Review'
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 
-const PaymentForm = ({ checkoutToken, backStep }) => {
-    const handleSubmit = (event, elements, stripe) => {
+const PaymentForm = ({
+    checkoutToken,
+    shippingData,
+    onCaptureCheckout,
+    nextStep,
+    backStep
+}) => {
+    const handleSubmit = async (event, elements, stripe) => {
         event.preventDefault()
         if (!stripe || !elements) {
             return
@@ -35,8 +41,8 @@ const PaymentForm = ({ checkoutToken, backStep }) => {
                 city,
                 shippingSubdivision,
                 zip,
-				shippingCountryCode,
-				shippingOption
+                shippingCountryCode,
+                shippingOption
             } = shippingData
             const orderData = {
                 line_items: checkoutToken.live.line_items,
@@ -55,14 +61,16 @@ const PaymentForm = ({ checkoutToken, backStep }) => {
                 },
                 fulfillment: {
                     shipping_method: shippingOption
-				},
-				payment: {
-					gateway: 'stripe',
-					stripe: {
-						payment_method_id : paymentMethod.id
-					}
-				}
+                },
+                payment: {
+                    gateway: 'stripe',
+                    stripe: {
+                        payment_method_id: paymentMethod.id
+                    }
+                }
             }
+            onCaptureCheckout(checkoutToken.id, orderData)
+            nextStep()
         }
     }
     return (
