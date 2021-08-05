@@ -8,7 +8,7 @@ const App = () => {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState({})
     const [order, setOrder] = useState({})
-   
+    const [errorMessage, setErrorMessage] = useState('')
     
 
     console.clear()
