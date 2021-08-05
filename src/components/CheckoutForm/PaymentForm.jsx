@@ -35,7 +35,8 @@ const PaymentForm = ({ checkoutToken, backStep }) => {
                 city,
                 shippingSubdivision,
                 zip,
-                shippingCountryCode
+				shippingCountryCode,
+				shippingOption
             } = shippingData
             const orderData = {
                 line_items: checkoutToken.live.line_items,
@@ -54,7 +55,13 @@ const PaymentForm = ({ checkoutToken, backStep }) => {
                 },
                 fulfillment: {
                     shipping_method: shippingOption
-                }
+				},
+				payment: {
+					gateway: 'stripe',
+					stripe: {
+						payment_method_id : paymentMethod.id
+					}
+				}
             }
         }
     }
