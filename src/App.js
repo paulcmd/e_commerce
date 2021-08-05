@@ -9,7 +9,6 @@ const App = () => {
     const [cart, setCart] = useState({})
     const [order, setOrder] = useState({})
     const [errorMessage, setErrorMessage] = useState('')
-    
 
     console.clear()
     console.log('cart', cart)
@@ -96,7 +95,12 @@ const App = () => {
                         />
                     </Route>
                     <Route exact path="/checkout">
-                        <Checkout cart={cart} />
+                        <Checkout
+                            cart={cart}
+                            order={order}
+                            onCaptureCheckout={handleCaptureCheckout}
+                            error={errorMessage}
+                        />
                     </Route>
                 </Switch>
             </div>
