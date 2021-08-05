@@ -99,7 +99,7 @@ const App = () => {
                             cart={cart}
                             order={order}
                             onCaptureCheckout={handleCaptureCheckout}
-                            error={errorMessage}
+                            errorMessage={errorMessage}
                         />
                     </Route>
                 </Switch>
