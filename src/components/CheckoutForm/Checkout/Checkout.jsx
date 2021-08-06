@@ -51,15 +51,16 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
     }
 
     console.log('Shipping data : ', shippingData)
-    
-    const { customer, customer_reference, firstname, lastname } = order
+
+    const { customer, customer_reference } = order
     let Confirmation = () =>
         customer ? (
             <>
                 <div>
                     <Typography variant="h5">
-                        Thank you for your purchase,
-                        {(customer.firstname, customer.lastname)}
+                        {`Thank you for your purchase,
+                        ${customer.firstname}
+                        ${customer.lastname}`}
                     </Typography>
                     <Divider className={classes.divider} />
                     <Typography variant="subtitle2">
