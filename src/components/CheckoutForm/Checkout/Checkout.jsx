@@ -40,7 +40,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
 
                 setTimeout(() => {
                     history.push('/')
-                }, 3000)
+                }, 5000)
             }
         }
 
@@ -168,4 +168,8 @@ export default Checkout
 last index in steps + 1
 
 next function is collecting data from addressForm and setting it to shippingData state
+
+if you choose not to enter card details, a confirmation page without user's name will be displayed
+
+
 */
