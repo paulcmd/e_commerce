@@ -153,7 +153,7 @@ const AddressForm = ({ checkoutToken, next }) => {
                         <Grid item xs={12} sm={6}>
                             <InputLabel>Shipping Country</InputLabel>
                             <Select
-                                value={shippingCountryCode}
+                                value={ '' || shippingCountryCode}
                                 fullWidth
                                 onChange={(e) =>
                                     setShippingCountryCode(e.target.value)
@@ -162,7 +162,7 @@ const AddressForm = ({ checkoutToken, next }) => {
                                 {countries.map((country) => (
                                     <MenuItem
                                         key={country.id}
-                                        value={country.id}
+                                        value={ '' || country.id}
                                     >
                                         {country.label}
                                     </MenuItem>
@@ -172,7 +172,7 @@ const AddressForm = ({ checkoutToken, next }) => {
                         <Grid item xs={12} sm={6}>
                             <InputLabel>Shipping Subdivision</InputLabel>
                             <Select
-                                value={shippingSubdivision}
+                                value={'' || shippingSubdivision}
                                 fullWidth
                                 onChange={(e) =>
                                     setShippingSubdivision(e.target.value)
@@ -251,4 +251,7 @@ we then create an object with each item in the array with country code as id and
 
 setShippingCountry(Object.keys(countries)[0]) this places the first country in the <Select> field
 onChange={e=>setShippingCountry(e.target.value)}> allows user to select a country in the menu, and into the <Select> field
+
+console warning was saying select value was out of range, meaning select was trying to access value before the
+value eg shippingCountryCode loaded. so I changed it to value={ '' || country.id}, initializing with empty string 
 */

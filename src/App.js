@@ -9,6 +9,7 @@ const App = () => {
     const [cart, setCart] = useState({})
     const [order, setOrder] = useState({})
     const [errorMessage, setErrorMessage] = useState('')
+    const [isFinished, setIsFinished] = useState(false)
 
     console.clear()
     console.log('cart', cart)
@@ -59,6 +60,8 @@ const App = () => {
 
         setCart(newCart)
     }
+
+    
 
     const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
         try {

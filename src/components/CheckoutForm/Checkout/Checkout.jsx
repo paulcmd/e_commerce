@@ -7,9 +7,10 @@ import {
     Typography,
     CircularProgress,
     Divider,
-    Button
+    Button,
+    CssBaseline
 } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import { commerce } from '../../../lib/commerce'
 import useStyles from './styles'
@@ -18,11 +19,14 @@ import PaymentForm from '../PaymentForm'
 
 const steps = ['Shipping address', 'Payment details']
 
+
+
 const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
     const [activeStep, setActiveStep] = useState(0)
     const [checkoutToken, setCheckoutToken] = useState(null)
     const [shippingData, setShippingData] = useState({})
     const classes = useStyles()
+    const history = useHistory()
 
     useEffect(() => {
         const generateToken = async () => {
@@ -33,7 +37,8 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
                 //console.log('token',token)
                 setCheckoutToken(token)
             } catch (error) {
-                console.log('generateToken Error : ', error)
+                //console.log('generateToken Error : ', error)
+                history.push('/')
             }
         }
 
@@ -51,6 +56,12 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
     }
 
     console.log('Shipping data : ', shippingData)
+
+    const timeout = () => {
+        setTimeout(() => {
+            setIsFinished(true)
+        }, 3000)
+    }
 
     const { customer, customer_reference } = order
     let Confirmation = () =>
@@ -111,6 +122,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
 
     return (
         <>
+            <CssBaseline />
             <div className={classes.toolbar} />
             <main className={classes.layout}>
                 <Paper className={classes.paper}>

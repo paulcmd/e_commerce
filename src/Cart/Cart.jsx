@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Typography, Button, Grid } from '@material-ui/core'
+import {
+    Container,
+    Typography,
+    Button,
+    Grid,
+    CssBaseline
+} from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import { commerce } from '../lib/commerce'
 import { classes } from 'istanbul-lib-coverage'
@@ -74,6 +80,7 @@ const Cart = ({
 
     return (
         <Container>
+            <CssBaseline />
             <div className={classes.toolbar} />
             <Typography
                 className={classes.title}
