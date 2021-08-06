@@ -49,7 +49,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
 
     console.log('Shipping data : ', shippingData)
 
-    const Confirmation = () => (
+    const Confirmation = () => order.customer ? (
         <>
             <div>
                 <Typography variant="h5">
@@ -61,8 +61,12 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
                 </Typography>
             </div>
             <br />
-            <Button component={Link} to='/'></Button>
+            <Button component={Link} to='/' variant='outlined' type='button'>Back to Home</Button>
         </>
+    ) : (
+            <div className={classes.spinner}>
+                <CircularProgress />
+            </div>
     )
 
     const Form = () =>
