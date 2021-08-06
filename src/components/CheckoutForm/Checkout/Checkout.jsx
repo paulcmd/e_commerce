@@ -51,18 +51,20 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
     }
 
     console.log('Shipping data : ', shippingData)
-
-    let Confirmation = () => {
-        const { customer, firstname, lastname } = order
-
+    
+    const { customer, customer_reference, firstname, lastname } = order
+    let Confirmation = () =>
         customer ? (
             <>
                 <div>
                     <Typography variant="h5">
-                        Thank you for your purchase,{ firstname, lastname}
+                        Thank you for your purchase,
+                        {(customer.firstname, customer.lastname)}
                     </Typography>
                     <Divider className={classes.divider} />
-                    <Typography variant="subtitle2">Order ref :</Typography>
+                    <Typography variant="subtitle2">
+                        Order ref : {customer_reference}
+                    </Typography>
                 </div>
                 <br />
                 <Button
@@ -79,14 +81,17 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
                 <CircularProgress />
             </div>
         )
-    }
-        
 
     if (errorMessage) {
-        <>
+        ;<>
             <Typography variant="h5">Error : {errorMessage}</Typography>
             <br />
-            <Button component={Link} to="/" variant="outlined" type="button"></Button>
+            <Button
+                component={Link}
+                to="/"
+                variant="outlined"
+                type="button"
+            ></Button>
         </>
     }
 
