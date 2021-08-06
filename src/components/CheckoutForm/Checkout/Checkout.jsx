@@ -40,7 +40,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
 
                 setTimeout(() => {
                     history.push('/')
-                }, 5000)
+                }, 4000)
             }
         }
 
