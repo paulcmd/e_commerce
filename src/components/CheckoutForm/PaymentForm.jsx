@@ -15,6 +15,7 @@ const PaymentForm = ({
     checkoutToken,
     shippingData,
     onCaptureCheckout,
+    timeout,
     nextStep,
     backStep
 }) => {
@@ -70,6 +71,7 @@ const PaymentForm = ({
                 }
             }
             onCaptureCheckout(checkoutToken.id, orderData)
+            timeout()
             nextStep()
         }
     }

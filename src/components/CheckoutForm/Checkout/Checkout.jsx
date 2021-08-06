@@ -19,12 +19,11 @@ import PaymentForm from '../PaymentForm'
 
 const steps = ['Shipping address', 'Payment details']
 
-
-
 const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
     const [activeStep, setActiveStep] = useState(0)
     const [checkoutToken, setCheckoutToken] = useState(null)
     const [shippingData, setShippingData] = useState({})
+    const [isFinished, setIsFinished] = useState(false)
     const classes = useStyles()
     const history = useHistory()
 
@@ -37,8 +36,11 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
                 //console.log('token',token)
                 setCheckoutToken(token)
             } catch (error) {
-                //console.log('generateToken Error : ', error)
-                history.push('/')
+                console.log('generateToken Error : ', error)
+
+                setTimeout(() => {
+                    history.push('/')
+                }, 3000)
             }
         }
 
@@ -88,6 +90,15 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
                     Back to Home
                 </Button>
             </>
+        ) : isFinished ? (
+            <>
+                <div>
+                    <Typography variant="h5">
+                        {`Thank you for your purchase!`}
+                    </Typography>
+                    <Divider className={classes.divider} />
+                </div>
+            </>
         ) : (
             <div className={classes.spinner}>
                 <CircularProgress />
@@ -115,6 +126,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
                 checkoutToken={checkoutToken}
                 shippingData={shippingData}
                 onCaptureCheckout={onCaptureCheckout}
+                timeout={timeout}
                 nextStep={nextStep}
                 backStep={backStep}
             />
