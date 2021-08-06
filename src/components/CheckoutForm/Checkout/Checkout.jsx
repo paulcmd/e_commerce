@@ -49,7 +49,21 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
 
     console.log('Shipping data : ', shippingData)
 
-    const Confirmation = () => <div>Confirmation</div>
+    const Confirmation = () => (
+        <>
+            <div>
+                <Typography variant="h5">
+                    Thank you for your purchase,{' '}
+                </Typography>
+                <Divider className={classes.divider} />
+                <Typography variant="subtitle2">
+                    Order ref : 
+                </Typography>
+            </div>
+            <br />
+            <Button component={Link} to='/'></Button>
+        </>
+    )
 
     const Form = () =>
         activeStep === 0 ? (
