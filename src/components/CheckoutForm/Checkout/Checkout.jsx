@@ -9,6 +9,7 @@ import {
     Divider,
     Button
 } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 
 import { commerce } from '../../../lib/commerce'
 import useStyles from './styles'
@@ -31,7 +32,9 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
                 })
                 //console.log('token',token)
                 setCheckoutToken(token)
-            } catch (error) {}
+            } catch (error) {
+                console.log('generateToken Error : ', error)
+            }
         }
 
         generateToken()
@@ -49,25 +52,43 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMessage }) => {
 
     console.log('Shipping data : ', shippingData)
 
-    const Confirmation = () => order.customer ? (
-        <>
-            <div>
-                <Typography variant="h5">
-                    Thank you for your purchase,{' '}
-                </Typography>
-                <Divider className={classes.divider} />
-                <Typography variant="subtitle2">
-                    Order ref : 
-                </Typography>
-            </div>
-            <br />
-            <Button component={Link} to='/' variant='outlined' type='button'>Back to Home</Button>
-        </>
-    ) : (
+    let Confirmation = () => {
+        const { customer, firstname, lastname } = order
+
+        customer ? (
+            <>
+                <div>
+                    <Typography variant="h5">
+                        Thank you for your purchase,{ firstname, lastname}
+                    </Typography>
+                    <Divider className={classes.divider} />
+                    <Typography variant="subtitle2">Order ref :</Typography>
+                </div>
+                <br />
+                <Button
+                    component={Link}
+                    to="/"
+                    variant="outlined"
+                    type="button"
+                >
+                    Back to Home
+                </Button>
+            </>
+        ) : (
             <div className={classes.spinner}>
                 <CircularProgress />
             </div>
-    )
+        )
+    }
+        
+
+    if (errorMessage) {
+        <>
+            <Typography variant="h5">Error : {errorMessage}</Typography>
+            <br />
+            <Button component={Link} to="/" variant="outlined" type="button"></Button>
+        </>
+    }
 
     const Form = () =>
         activeStep === 0 ? (
