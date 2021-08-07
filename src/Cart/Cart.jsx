@@ -32,7 +32,8 @@ const Cart = ({
 
     const FilledCart = () => (
         <>
-            <Grid container spacing={3} style={{ margin: 300 }}>
+            <CssBaseline />
+            <Grid container spacing={6} style={{ margin: 300 }}>
                 {cart.line_items.map((item) => (
                     <Grid xs={12} sm={6} key={item.id}>
                         <div>
