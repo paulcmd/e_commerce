@@ -4,7 +4,7 @@
 ---
 
 ## Description:
-This is a React E-commerce application that uses Commerce.js, an e-commerce API to manage products, cart and checkout. The API provides REST-based methods that help fetch, update and delete products and cart items. Checkout allows the user to enter shipping information and once the shipping country is entered, the respective shipping subdivisions and shipping options are pre-populated. Payments are handled through React Stripe.js, a thin wrapper around Stripe and Stripe Elements. Stripe is a library for building payment flows. See the [usage](#usage) or [demonstration](#demonstration) sections for a more detailed explanation on how to use this application.
+This is a React-based E-commerce application that uses Commerce.js, an e-commerce API to manage products, cart and checkout. The API provides REST-based methods that help fetch, update and delete products and cart items. Checkout allows the user to enter shipping information and once the shipping country is entered, the respective shipping subdivisions and shipping options are pre-populated. Payments are handled through React Stripe.js, a thin wrapper around Stripe and Stripe Elements. Stripe is a library for building payment flows. See the [usage](#usage) or [demonstration](#demonstration) sections for a more detailed explanation on how to use this application.
 
 ---
 
