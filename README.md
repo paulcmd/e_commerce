@@ -1,4 +1,4 @@
-# E-Commerce
+# E-Commerce Web Application
   ![GitHub repo size](https://img.shields.io/github/repo-size/paulcmd/e_commerce?style=for-the-badge) ![GitHub code size](https://img.shields.io/github/languages/code-size/paulcmd/e_commerce?color=gold&style=for-the-badge) ![GitHub language count](https://img.shields.io/github/languages/count/paulcmd/e_commerce?color=green&style=for-the-badge) ![GitHub top language](https://img.shields.io/github/languages/top/paulcmd/e_commerce?color=red&style=for-the-badge)
 
 ---
@@ -42,7 +42,7 @@ Steps to use this application:
 ---
 
 ## Demonstration:
-To view a demonstration of this application, go to __[this link](https://react-ecommercejs.netlify.app/)__.
+To view a demonstration of this application, go to __[this link](<a href="https://react-ecommercejs.netlify.app/" target="_blank">example</a>)__.
 
 ---
 
