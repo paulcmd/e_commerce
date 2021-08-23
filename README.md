@@ -4,9 +4,7 @@
 ---
 
 ## Description:
-This is a React application that allows a user to manage their income as well as expenses. The user can input the name of income/expense as well as its dollar amount, and then view the balance. Expenses are distinguished from income by adding a (-) minus sign before the expense amount. This Budget Tracker also uses _LocalStorage_ to store the user's expenses so that they can be viewed again later. See the [usage](#usage) or [demonstration](#demonstration) sections for a more detailed explanation on how to use this application.
-
-This application was created using _ReactJS_, as well as _React Hooks_ (_useState_ and _useEffect_), and LocalStorage.
+This is a React E-commerce application that uses Commerce.js, an e-commerce API to manage products, cart and checkout. The API provides REST-based methods that help fetch, update and delete products and cart items. Checkout allows the user to enter shipping information and once the shipping country is entered, the respective shipping subdivisions and shipping options are pre-populated. Payments are handled through React Stripe.js, a thin wrapper around Stripe and Stripe Elements. Stripe is a library for building payment flows. See the [usage](#usage) or [demonstration](#demonstration) sections for a more detailed explanation on how to use this application.
 
 ---
 
@@ -25,8 +23,6 @@ None is required.
 
 ---
 
-## Usage:
-To use the application, go to __[this link](https://react-ecommercejs.netlify.app/)__.
 
 ![img-1](readme-imgs/default.png)
 
@@ -47,6 +43,11 @@ Steps to use this application:
 
 ## Demonstration:
 To view a demonstration of this application, go to __[this link](https://react-ecommercejs.netlify.app/)__.
+
+---
+
+## Usage:
+At Checkout, under Payment Method, use 424242... for card number, month, year and cvc code. These are stripe defaults.
 
 ---
 
