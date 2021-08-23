@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# E-Commerce
+  ![GitHub repo size](https://img.shields.io/github/repo-size/paulcmd/e_commerce?style=for-the-badge) ![GitHub code size](https://img.shields.io/github/languages/code-size/paulcmd/e_commerce?color=gold&style=for-the-badge) ![GitHub language count](https://img.shields.io/github/languages/count/paulcmd/e_commerce?color=green&style=for-the-badge) ![GitHub top language](https://img.shields.io/github/languages/top/paulcmd/e_commerce?color=red&style=for-the-badge)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## Description:
+This is a React application that allows a user to manage their income as well as expenses. The user can input the name of income/expense as well as its dollar amount, and then view the balance. Expenses are distinguished from income by adding a (-) minus sign before the expense amount. This Budget Tracker also uses _LocalStorage_ to store the user's expenses so that they can be viewed again later. See the [usage](#usage) or [demonstration](#demonstration) sections for a more detailed explanation on how to use this application.
 
-In the project directory, you can run:
+This application was created using _ReactJS_, as well as _React Hooks_ (_useState_ and _useEffect_), and LocalStorage.
 
-### `yarn start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of Contents:
+* [Installation](#installation)
+* [Usage](#usage)
+* [Demonstration](#demonstration)
+* [License](#license)
+* [Resources](#resources)
+* [Future Improvements](#future-improvements)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `yarn test`
+## Installation:
+None is required.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `yarn build`
+## Usage:
+To use the application, go to __[this link](https://react-ecommercejs.netlify.app/)__.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![img-1](readme-imgs/default.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Steps to use this application:
+* __step 1:__ Input information about the income (name/type, and amount) and click the "Add Transaction" button.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![img-1](readme-imgs/income-input.png)
+* __step 2:__ Input information about the expense (name/type, and amount) and click the "Add Transaction" button.
 
-### `yarn eject`
+![img-3](readme-imgs/expense-input.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* __step 3:__ Keep adding transactions. The list and balance will persist even if the page is closed/re-opened or refreshed.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![img-5](readme-imgs/transactions.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## Demonstration:
+To view a demonstration of this application, go to __[this link](https://react-ecommercejs.netlify.app/)__.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Resources:
+* [CommerceJS](https://commercejs.com/product/ecommerce-api)
+	- [CommerJS Products](https://commercejs.com/docs/sdk/products)
+    - [CommerceJS Checkout](https://commercejs.com/docs/sdk/checkout)
+* [React Stripe.js](https://stripe.com/docs/stripe-js/react)
+* [Material-UI](https://material-ui.com/)
+* [ReactJS](https://reactjs.org/docs/getting-started.html)
+  * [React Hooks](https://reactjs.org/docs/hooks-intro.html)
+    - [useState](https://reactjs.org/docs/hooks-state.html)
+    - [useEffect](https://reactjs.org/docs/hooks-effect.html)
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Future Improvements:
+* Use Redux to manage state instead of prop drilling data down several components.
+* Allow user to add products from an add_product page, currently can only be done through a commerce.js account
+* Use React.Memo() so that child components don't have to re-render every time their respective parents do. This will further optimize performance.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## License:
+[MIT License](https://opensource.org/licenses/MIT)
 
-### Advanced Configuration
+Copyright © 2020 Paul Wachira
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-### Deployment
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-### `yarn build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+

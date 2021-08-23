@@ -8,7 +8,6 @@ import {
 } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import { commerce } from '../lib/commerce'
-import { classes } from 'istanbul-lib-coverage'
 import CartItem from './CartItem/CartItem'
 
 import useStyles from './styles'
@@ -32,20 +31,28 @@ const Cart = ({
 
     const FilledCart = () => (
         <>
-            <CssBaseline />
-            <Grid container spacing={6} style={{ margin: 300 }}>
-                {cart.line_items.map((item) => (
-                    <Grid xs={12} sm={6} key={item.id}>
-                        <div>
-                            <CartItem
-                                item={item}
-                                handleUpdateCartQty={handleUpdateCartQty}
-                                handleRemoveFromCart={handleRemoveFromCart}
-                            />
-                        </div>
-                    </Grid>
-                ))}
-            </Grid>
+            <main className={classes.content}>
+                <CssBaseline />
+                <Grid
+                    container
+                    justifyContent="center"
+                    spacing={4}
+                    style={{ margin: 20 }}
+                >
+                    {cart.line_items.map((item) => (
+                        <Grid item xs={12} sm={5} key={item.id}>
+                            <div>
+                                <CartItem
+                                    item={item}
+                                    handleUpdateCartQty={handleUpdateCartQty}
+                                    handleRemoveFromCart={handleRemoveFromCart}
+                                />
+                            </div>
+                        </Grid>
+                    ))}
+                </Grid>
+            </main>
+
             <div className={classes.cardDetails}>
                 <Typography variant="h4">
                     Subtotal: {cart.subtotal.formatted_with_symbol}
