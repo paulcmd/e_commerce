@@ -24,12 +24,12 @@ None is required.
 ---
 
 
-![img-1](readme-imgs/default.png)
+![img-1](src/assets/images/readme-imgs/home-page.png)
 
 Steps to use this application:
-* __step 1:__ Input information about the income (name/type, and amount) and click the "Add Transaction" button.
+* __step 1:__ Products are fetched and populated on the home screen.
 
-![img-1](readme-imgs/income-input.png)
+![img-2](readme-imgs/income-input.png)
 * __step 2:__ Input information about the expense (name/type, and amount) and click the "Add Transaction" button.
 
 ![img-3](readme-imgs/expense-input.png)
