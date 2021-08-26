@@ -30,7 +30,7 @@ Steps to use this application:
 * __step 1:__ Products are fetched and populated on the home screen.
 
 ![img-2](readme-imgs/income-input.png)
-* __step 2:__ Input information about the expense (name/type, and amount) and click the "Add Transaction" button.
+* __step 2:__ click on the add to cart icon on the item you wish to buy and click on the cart (top right) to view the items
 
 ![img-3](readme-imgs/expense-input.png)
 
@@ -69,7 +69,7 @@ At Checkout, under Payment Method, use 424242... for card number, month, year an
 ## Future Improvements:
 * Use Redux to manage state instead of prop drilling data down several components.
 * Allow user to add products from an add_product page, currently can only be done through a commerce.js account
-* Use React.Memo() so that child components don't have to re-render every time their respective parents do. This will further optimize performance.
+* Use React.useMemo() so that child components don't have to re-render every time their respective parents do. This will further optimize performance.
 
 ---
 
@@ -99,3 +99,9 @@ SOFTWARE.
 ---
 
 
+## Questions: 
+For any questions, please contact:
+
+![paulcmd](https://avatars0.githubusercontent.com/u/59345254?v=4) 
+
+__[paulcmd](https://github.com/paulcmd)__ at wachira.pmw@gmail.com
