@@ -29,10 +29,9 @@ None is required.
 Steps to use this application:
 * __step 1:__ Products are fetched and populated on the home screen.
 
-![img-2](readme-imgs/income-input.png)
-* __step 2:__ click on the add to cart icon on the item you wish to buy and click on the cart (top right) to view the items
+* __step 2:__ User clicks on the 'add to cart' icon on the items they wish to buy and click on the cart (top right) to view the cart items
 
-![img-3](readme-imgs/expense-input.png)
+![img-2](readme-imgs/cart.png)
 
 * __step 3:__ Keep adding transactions. The list and balance will persist even if the page is closed/re-opened or refreshed.
 
