@@ -31,7 +31,7 @@ Steps to use this application:
 
 * __step 2:__ User clicks on the 'add to cart' icon on the items they wish to buy and click on the cart (top right) to view the cart items
 
-![img-2](readme-imgs/cart.png)
+![img-2](src/assets/images/readme-imgs/cart.png)
 
 * __step 3:__ Keep adding transactions. The list and balance will persist even if the page is closed/re-opened or refreshed.
 
