@@ -46,6 +46,11 @@ ie. whether the shipment will be domestic or international.
 
 ![img-4](src/assets/images/readme-imgs/checkout.png)
 
+A summary of the checkout items is presented to the user including their total cost.
+
+A stripe element that accepts a user's card details enables the user to make
+payments for purcahsed items.
+
 * __step 5:__ 
 
 ![img-4](src/assets/images/readme-imgs/checkout-final.png)
