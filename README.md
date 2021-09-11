@@ -55,6 +55,10 @@ payments for purcahsed items.
 
 ![img-4](src/assets/images/readme-imgs/checkout-final.png)
 
+* __step 6:__ 
+
+![img-4](src/assets/images/readme-imgs/email.png)
+
 ---
 
 ## Demonstration:
