@@ -38,6 +38,7 @@ Steps to use this application:
 ![img-3](src/assets/images/readme-imgs/shipping-address.png)
 
 * __step 4:__ 
+
 ![img-4](src/assets/images/readme-imgs/checkout.png)
 
 * __step 5:__ 
