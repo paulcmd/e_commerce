@@ -37,6 +37,11 @@ Steps to use this application:
 
 ![img-3](src/assets/images/readme-imgs/shipping-address.png)
 
+User enters shipping address information and selects their shipping country from the 
+drop down menu. Selecting a country prompts an api call to load a list of sub-divisions
+of the respective country. The shipping options are also determined by the country selected
+ie. whether the shipment will be domestic or international.
+
 * __step 4:__ 
 
 ![img-4](src/assets/images/readme-imgs/checkout.png)
