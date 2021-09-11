@@ -33,9 +33,9 @@ Steps to use this application:
 
 ![img-2](src/assets/images/readme-imgs/cart.png)
 
-* __step 3:__ Keep adding transactions. The list and balance will persist even if the page is closed/re-opened or refreshed.
+* __step 3:__ 
 
-![img-5](readme-imgs/transactions.png)
+![img-5](src/assets/images/readme-imgs/shpping-address.png)
 
 
 ---

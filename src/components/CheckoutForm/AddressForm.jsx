@@ -41,29 +41,28 @@ const AddressForm = ({ checkoutToken, next }) => {
         checkoutTokenId,
         shippingCountryCode
     ) => {
-        const subdivisions = await api(checkoutTokenId, shippingCountryCode)
-    //     const url = new URL(
-    //         `https://api.chec.io/v1/services/locale/${checkoutTokenId}/countries/${shippingCountryCode}/subdivisions`
-    //     )
+      //  const subdivisions = await api(checkoutTokenId, shippingCountryCode)
+        const url = new URL(
+            `https://api.chec.io/v1/services/locale/${checkoutTokenId}/countries/${shippingCountryCode}/subdivisions`
+        )
 
-    //     let headers = {
-    //         'X-Authorization': process.env.REACT_APP_CHEC_PUBLIC_KEY,
-    //         Accept: 'application/json',
-    //         'Content-Type': 'application/json'
-    //     }
+        let headers = {
+            'X-Authorization': process.env.REACT_APP_CHEC_PUBLIC_KEY,
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        }
 
-    //    const { subdivisions } = await  fetch(url, {
-    //         method: 'GET',
-    //         headers: headers
-    //    }).then((response) => response.json())
+       const { subdivisions } = await  fetch(url, {
+            method: 'GET',
+            headers: headers
+       }).then((response) => response.json())
         
         console.log('fetcchshippingSubdivisions : ', subdivisions)
-            // .then((response) => response.json())
-            // .then(({ subdivisions }) => {
-            //     setShippingSubdivisions(subdivisions)
-            //     setShippingSubdivision(Object.keys(subdivisions)[0])
-            //     //console.log('Shipping subdivision : ', shippingSubdivision)
-            // })
+           
+                setShippingSubdivisions(subdivisions)
+                setShippingSubdivision(Object.keys(subdivisions)[0])
+                //console.log('Shipping subdivision : ', shippingSubdivision)
+            
 
         // const { subdivisions } =
         //     await commerce.services.localeListShippingSubdivisions(
