@@ -42,6 +42,7 @@ Steps to use this application:
 ![img-4](src/assets/images/readme-imgs/checkout.png)
 
 * __step 5:__ 
+
 ![img-4](src/assets/images/readme-imgs/checkout-final.png)
 
 ---
