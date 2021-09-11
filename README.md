@@ -35,8 +35,13 @@ Steps to use this application:
 
 * __step 3:__ 
 
-![img-5](src/assets/images/readme-imgs/shpping-address.png)
+![img-3](src/assets/images/readme-imgs/shipping-address.png)
 
+* __step 4:__ 
+![img-4](src/assets/images/readme-imgs/checkout.png)
+
+* __step 5:__ 
+![img-4](src/assets/images/readme-imgs/checkout-final.png)
 
 ---
 
