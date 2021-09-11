@@ -57,6 +57,8 @@ payments for purcahsed items.
 
 * __step 6:__ 
 
+An order summary is submitted to the user's email address
+
 ![img-4](src/assets/images/readme-imgs/email.png)
 
 ---
