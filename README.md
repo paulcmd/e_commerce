@@ -108,6 +108,6 @@ SOFTWARE.
 ## Questions: 
 For any questions, please contact:
 
-![paulcmd](https://avatars0.githubusercontent.com/u/59345254?v=4) 
+![paulcmd](https://github.com/paulcmd.png?size=80) 
 
 __[paulcmd](https://github.com/paulcmd)__ at wachira.pmw@gmail.com
