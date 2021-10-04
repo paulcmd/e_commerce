@@ -64,7 +64,7 @@ An order summary is submitted to the user's email address
 ---
 
 ## Demonstration:
-To view a demonstration of this application, go to ==> __[this link](https://e-commerce-pmw.netlify.app/)__.
+To view a demonstration of this application, go to ==> __[this link](https://react-ecommercejs.netlify.app/)__.
 
 ---
 
